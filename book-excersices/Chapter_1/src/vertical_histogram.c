@@ -2,6 +2,8 @@
 #define IN 1
 #define OUT 0
 
+/* Function that take string and print their length in horizontal histogram */
+
 int main()
 {
 /* Create verablies */
