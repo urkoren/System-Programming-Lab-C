@@ -1,2 +1,0 @@
-My cos of 2.617992 Radians: -0.769651
-Bltin cos of 2.617992 Radians: -0.866024

@@ -1,0 +1,3 @@
+Enter angles in degrees (not radians): 
+My cos of 5.486860 Radians: 0.699338
+Bltin cos of 5.486860 Radians: 0.699338
