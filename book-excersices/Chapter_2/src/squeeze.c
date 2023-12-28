@@ -1,6 +1,8 @@
 #include <stdio.h>
 
-void squezze(char s[], char c[])
+/* Delete each character in s that matches any character in the c string*/
+
+void squeeze(char s[], char c[])
 {
     int i, j, k;
 
@@ -19,9 +21,7 @@ void squezze(char s[], char c[])
 int main(void) {
     char s[] = "Hello";
     char c[] = "le";
-    squezze(s,c);
+    squeeze(s,c);
     printf("%s", s);
     return 0;
-
-
 }
