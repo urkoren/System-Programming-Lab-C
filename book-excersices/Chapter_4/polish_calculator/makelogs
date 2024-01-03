@@ -1,0 +1,2 @@
+gcc main.c getop.c stack.c -o main
+Makefile:3: recipe for target 'main' failed

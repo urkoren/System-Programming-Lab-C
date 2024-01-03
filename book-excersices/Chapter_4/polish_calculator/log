@@ -1,0 +1,1 @@
+gcc main.c getop.c stack.c -o main -lm
