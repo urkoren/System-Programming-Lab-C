@@ -2,8 +2,6 @@
 
 char names[NUM_NAMES][NAME_LEN];
 
-
-
 char *get_name(void)
 /* Function that return a random name out of names array */
 {   

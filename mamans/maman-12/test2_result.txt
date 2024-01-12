@@ -1,0 +1,2 @@
+Error: The name 'synaptic' is already in the list.
+Duplicate names are not allowed.
