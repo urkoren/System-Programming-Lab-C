@@ -27,4 +27,7 @@ extern void
 print_mat(const MATRICES matrices);
 extern void 
 pprint_mat(const char *matrix_name, const MAT matrix_data);
-
+void 
+read_mat(const MATRICES matrices);
+void
+init_mats(MATRICES mats);
