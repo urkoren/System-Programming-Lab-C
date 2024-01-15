@@ -22,7 +22,7 @@ mymat(MATRICES mats);
 extern MAT 
 *sort_mat(const char *mat_name, MATRICES matrices);
 extern void 
-reset_mat(MAT mat);
+reset_mat(MAT *mat);
 extern void 
 print_mat(const MATRICES matrices);
 extern void 
