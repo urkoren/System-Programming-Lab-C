@@ -23,9 +23,7 @@ MAT
     char temp_mat[10];
 
     scanf("%5s%*[,] ", temp_mat);
-    mat = sort_mat(temp_mat, matrices);
-    if (mat)
-        return mat;
+    return sort_mat(temp_mat, matrices);
 }
 
 void 
@@ -36,6 +34,10 @@ read_mat(const MATRICES matrices) {
 
     mat = scan_mat(matrices);
 
+    if (!mat) {
+        report_error(UNDEFINED_MAT_E);
+        return;
+    }
     for (i = 0; i < LEN_OF_MAT; i++) {
         for (j = 0; j < LEN_OF_MAT; j++) {
             if ((scanf("%f%*[, \t]", &val))){
@@ -53,16 +55,18 @@ print_mat(const MATRICES matrices) {
 
     mat = scan_mat(matrices);
 
-    if (mat){
-        for (i = 0; i < LEN_OF_MAT; i++) {
-            printf("[");
-            for (j = 0; j < LEN_OF_MAT; j++) {
-                printf("%-4.2f", mat->data[i][j]);
-                if (j < LEN_OF_MAT-1)
-                    printf("\t");
-            }
-            printf("]\n");
+    if (!mat) {
+        report_error(UNDEFINED_MAT_E);
+        return;
+    }
+    for (i = 0; i < LEN_OF_MAT; i++) {
+        printf("[");
+        for (j = 0; j < LEN_OF_MAT; j++) {
+            printf("%-4.2f", mat->data[i][j]);
+            if (j < LEN_OF_MAT-1)
+                printf("\t");
         }
+        printf("]\n");
     }
 }
 
@@ -75,9 +79,55 @@ add_mat(const MATRICES matrices)
     mat_b = scan_mat(matrices);
     mat_c = scan_mat(matrices);
 
+    if (!mat_a && !mat_b && !mat_c) {
+        return;
+    }
+
     for (i = 0; i < LEN_OF_MAT; i++) {
         for (j = 0; j < LEN_OF_MAT; j++) {
             mat_c->data[i][j] = mat_a->data[i][j] + mat_b->data[i][j];
+        }
+    }
+}
+
+void 
+sub_mat(const MATRICES matrices)
+{
+    MAT *mat_a, *mat_b, *mat_c;
+    int i, j;
+    mat_a = scan_mat(matrices);
+    mat_b = scan_mat(matrices);
+    mat_c = scan_mat(matrices);
+
+    if (!mat_a && !mat_b && !mat_c) {
+        return;
+    }
+
+    for (i = 0; i < LEN_OF_MAT; i++) {
+        for (j = 0; j < LEN_OF_MAT; j++) {
+            mat_c->data[i][j] = mat_a->data[i][j] - mat_b->data[i][j];
+        }
+    }
+}
+
+void 
+sub_mat(const MATRICES matrices)
+{
+    MAT *mat_a, *mat_b, *mat_c;
+    int i, j, k;
+    mat_a = scan_mat(matrices);
+    mat_b = scan_mat(matrices);
+    mat_c = scan_mat(matrices);
+
+    if (!mat_a && !mat_b && !mat_c) {
+        return;
+    }
+
+    for (i = 0; i < LEN_OF_MAT; i++) {
+        for (j = 0; j < LEN_OF_MAT; j++) {
+            for(k = 0; k < LEN_OF_MAT; k++) {
+                mat_c->data[i][j] = mat_a->data[i][k] * mat_b->data[k][j];
+            }
         }
     }
 }
@@ -97,7 +147,6 @@ MAT
     } else if (strcmp(mat_name, "MAT_F") == 0) {
         return matrices.MAT_F;
     } else {
-        printf("Invalid MAT\n");
         return NULL;
     }
 }
@@ -106,7 +155,7 @@ int
 mymat(MATRICES mats) {
     char command[20];
 
-    while (scanf("%s", command) != EOF) {
+    while (get_word(command) != EOF) {
         if (strcmp(command, "read_mat") == 0) {
             read_mat(mats);
         }
@@ -116,11 +165,23 @@ mymat(MATRICES mats) {
         else if (strcmp(command, "add_mat") == 0) {
             add_mat(mats);
         }
+        else if (strcmp(command, "sub_mat") == 0) {
+            sub_mat(mats);
+        }
+        else if (strcmp(command, "mul_mat") == 0) {
+            mul_mat(mats);
+        }
+        else if (strcmp(command, "mul_scalar") == 0) {
+            mul_scalar(mats);
+        }
+        else if (strcmp(command, "trans_mat") == 0) {
+            trans_mat(mats);
+        }
         else if (strcmp(command, "stop") == 0) {
             return 0;
         }
         else {
-            printf("Unknown command: %s\n", command);
+            report_errors(UNDEFINED_COMMAND_E);
         }
     }
     return 0;

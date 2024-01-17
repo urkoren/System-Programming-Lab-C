@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include "io.h"
 
 #define LEN_OF_MAT 4
-#define PPRINT_MAT(MAT) pprint_mat(#MAT, (MAT))
 
 typedef struct {
     float data[LEN_OF_MAT][LEN_OF_MAT];
