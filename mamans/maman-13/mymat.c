@@ -1,7 +1,7 @@
 #include "mymat.h"
 
 void 
-reset_mat(MAT *mat) {
+reset_mat(mat *mat) {
     memset(mat->data, 0, sizeof(mat->data));
 }
 
@@ -16,10 +16,10 @@ init_mats(MATRICES mats)
     reset_mat(mats.MAT_F);
 }
 
-MAT
+mat
 *scan_mat(const MATRICES matrices)
 {
-    MAT *mat;
+    mat *mat;
     char temp_mat[10];
 
     scanf("%5s%*[,] ", temp_mat);
@@ -28,14 +28,15 @@ MAT
 
 void 
 read_mat(const MATRICES matrices) {
-    MAT *mat;
+    /* TODO: Exceed values to include - not more then mats fields */
+    mat *mat;
     int i, j; 
     float val;
 
     mat = scan_mat(matrices);
 
     if (!mat) {
-        report_error(UNDEFINED_MAT_E);
+        report_errors(UNDEFINED_MAT_E);
         return;
     }
     for (i = 0; i < LEN_OF_MAT; i++) {
@@ -43,20 +44,24 @@ read_mat(const MATRICES matrices) {
             if ((scanf("%f%*[, \t]", &val))){
                 mat->data[i][j] = val;
             }
-            else {return;}
+            else {
+                report_errors(ARGUMENT_NOT_NUMBER_E);
+                return;
+            }
         }
     }
+    while(getchar() != '\n'){;}
 }
 
 void 
 print_mat(const MATRICES matrices) {
-    MAT *mat;
+    mat *mat;
     int i, j;
 
     mat = scan_mat(matrices);
 
     if (!mat) {
-        report_error(UNDEFINED_MAT_E);
+        report_errors(UNDEFINED_MAT_E);
         return;
     }
     for (i = 0; i < LEN_OF_MAT; i++) {
@@ -73,7 +78,7 @@ print_mat(const MATRICES matrices) {
 void 
 add_mat(const MATRICES matrices)
 {
-    MAT *mat_a, *mat_b, *mat_c;
+    mat *mat_a, *mat_b, *mat_c;
     int i, j;
     mat_a = scan_mat(matrices);
     mat_b = scan_mat(matrices);
@@ -93,7 +98,7 @@ add_mat(const MATRICES matrices)
 void 
 sub_mat(const MATRICES matrices)
 {
-    MAT *mat_a, *mat_b, *mat_c;
+    mat *mat_a, *mat_b, *mat_c;
     int i, j;
     mat_a = scan_mat(matrices);
     mat_b = scan_mat(matrices);
@@ -110,10 +115,10 @@ sub_mat(const MATRICES matrices)
     }
 }
 
-void 
-sub_mat(const MATRICES matrices)
+void
+mul_mat(const MATRICES matrices)
 {
-    MAT *mat_a, *mat_b, *mat_c;
+    mat *mat_a, *mat_b, *mat_c;
     int i, j, k;
     mat_a = scan_mat(matrices);
     mat_b = scan_mat(matrices);
@@ -132,7 +137,48 @@ sub_mat(const MATRICES matrices)
     }
 }
 
-MAT
+void
+mul_scalar(const MATRICES matrices)
+{
+    mat *mat_a, *mat_b;
+    int i, j;
+    double scalar;
+    mat_a = scan_mat(matrices);
+    scanf("%lf%*[, \t]", &scalar);
+    mat_b = scan_mat(matrices);
+
+    if (!mat_a || !mat_b) {
+        return;
+    }
+
+    for (i = 0; i < LEN_OF_MAT; i++) {
+        for (j = 0; j < LEN_OF_MAT; j++) {
+            mat_b->data[i][j] = mat_a->data[i][j] * scalar;
+        }
+    }
+}
+
+void
+trans_mat(const MATRICES matrices)
+{
+    mat *mat_a, *mat_b;
+    int i, j;
+    mat_a = scan_mat(matrices);
+    mat_b = scan_mat(matrices);
+
+    if (!mat_a && !mat_b) {
+        return;
+    }
+
+    for (i = 0; i < LEN_OF_MAT; i++) {
+        for (j = 0; j < LEN_OF_MAT; j++) {
+            mat_b->data[i][j] = mat_a->data[i][j];
+        }
+    }
+}
+
+
+mat
 *sort_mat(const char *mat_name, MATRICES matrices) {
     if (strcmp(mat_name, "MAT_A") == 0) {
         return matrices.MAT_A;
@@ -184,21 +230,5 @@ mymat(MATRICES mats) {
             report_errors(UNDEFINED_COMMAND_E);
         }
     }
-    return 0;
-}
-
-int main(void) {
-    MAT MAT_A, MAT_B, MAT_C, MAT_D, MAT_E, MAT_F;
-    MATRICES my_mats;
-    my_mats.MAT_A = &MAT_A;
-    my_mats.MAT_B = &MAT_B;
-    my_mats.MAT_C = &MAT_C;
-    my_mats.MAT_D = &MAT_D;
-    my_mats.MAT_E = &MAT_E;
-    my_mats.MAT_F = &MAT_F;
-
-    init_mats(my_mats);
-    mymat(my_mats);
-
     return 0;
 }

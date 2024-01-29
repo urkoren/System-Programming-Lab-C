@@ -1,14 +1,26 @@
+# Flags
 CC = gcc
-CFLAGS = -ansi -pedantic -Wall -std=c89
+CFLAGS = -ansi -pedantic -Wall -std=c90
 INCLUDES = -I.
 
-all: mymat
+#Files and Directories
+SOURCES = $(wildcard *.c)
+OBJECTS = $(SOURCES:.c=.o)
 
-mymat: mymat.o
-	$(CC) $(CFLAGS) mymat.o -o mymat
+# Rules
+all: mainmat
+
+mainmat: $(OBJECTS)
+	$(CC) $(CFLAGS) $^ -o $@
+
+mainmat.o: mainmat.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $^ -o $@
 
 mymat.o: mymat.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c mymat.c -o mymat.o
+	$(CC) $(CFLAGS) $(INCLUDES) -c $^ -o $@
+
+io.o: io.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $^ -o $@
 
 clean:
 	rm ./*.o
