@@ -19,33 +19,59 @@ init_mats(MATRICES mats)
 mat
 *scan_mat(const MATRICES matrices)
 {
-    mat *mat;
     char temp_mat[10];
 
     scanf("%5s%*[,] ", temp_mat);
+    printf("%s ", temp_mat);
     return sort_mat(temp_mat, matrices);
+}
+
+void
+read_to_end_of_line(void){
+    while(getchar() != '\n'){;}
 }
 
 void 
 read_mat(const MATRICES matrices) {
-    /* TODO: Exceed values to include - not more then mats fields */
     mat *mat;
     int i, j; 
     float val;
+    char mid_char;
+    printf("Reading to ");
 
     mat = scan_mat(matrices);
 
+    printf("\n");
+
     if (!mat) {
         report_errors(UNDEFINED_MAT_E);
+        read_to_end_of_line();
         return;
     }
     for (i = 0; i < LEN_OF_MAT; i++) {
         for (j = 0; j < LEN_OF_MAT; j++) {
-            if ((scanf("%f%*[, \t]", &val))){
+            if ((scanf("%f", &val))){
                 mat->data[i][j] = val;
             }
             else {
+                report_errors(EXTRA_TEXT_AFTER_COMMAND_E);
+                read_to_end_of_line();
+                return;
+            }
+            if (scanf("%c", &mid_char)){
+                if (mid_char == '\n') {
+                    return;
+                }
+                else if (mid_char == ',') { 
+                    continue;
+                }
+                else { 
+                    report_errors(ARGUMENT_NOT_NUMBER_E);
+                    return;
                 report_errors(ARGUMENT_NOT_NUMBER_E);
+                return;}
+            }
+            else {
                 return;
             }
         }
@@ -58,10 +84,15 @@ print_mat(const MATRICES matrices) {
     mat *mat;
     int i, j;
 
+    printf("Printing ");
+
     mat = scan_mat(matrices);
+
+    printf("\n");
 
     if (!mat) {
         report_errors(UNDEFINED_MAT_E);
+        read_to_end_of_line();
         return;
     }
     for (i = 0; i < LEN_OF_MAT; i++) {
@@ -80,9 +111,14 @@ add_mat(const MATRICES matrices)
 {
     mat *mat_a, *mat_b, *mat_c;
     int i, j;
+
+    printf("Adding ");
     mat_a = scan_mat(matrices);
+    printf("and ");
     mat_b = scan_mat(matrices);
+    printf("to ");
     mat_c = scan_mat(matrices);
+    printf("\n");
 
     if (!mat_a && !mat_b && !mat_c) {
         return;
@@ -100,9 +136,13 @@ sub_mat(const MATRICES matrices)
 {
     mat *mat_a, *mat_b, *mat_c;
     int i, j;
+    printf("Substracting ");
     mat_a = scan_mat(matrices);
+    printf("by ");
     mat_b = scan_mat(matrices);
+    printf("to ");
     mat_c = scan_mat(matrices);
+    printf("\n");
 
     if (!mat_a && !mat_b && !mat_c) {
         return;
@@ -120,9 +160,13 @@ mul_mat(const MATRICES matrices)
 {
     mat *mat_a, *mat_b, *mat_c;
     int i, j, k;
+    printf("Multipling ");
     mat_a = scan_mat(matrices);
+    printf("by ");
     mat_b = scan_mat(matrices);
+    printf("to ");
     mat_c = scan_mat(matrices);
+    printf("\n");
 
     if (!mat_a && !mat_b && !mat_c) {
         return;
@@ -143,9 +187,13 @@ mul_scalar(const MATRICES matrices)
     mat *mat_a, *mat_b;
     int i, j;
     double scalar;
+    printf("Multipling ");
     mat_a = scan_mat(matrices);
+    printf("by ");
     scanf("%lf%*[, \t]", &scalar);
+    printf("to ");
     mat_b = scan_mat(matrices);
+    printf("\n");
 
     if (!mat_a || !mat_b) {
         return;
@@ -163,8 +211,12 @@ trans_mat(const MATRICES matrices)
 {
     mat *mat_a, *mat_b;
     int i, j;
+
+    printf("Transposing ");
     mat_a = scan_mat(matrices);
+    printf("to ");
     mat_b = scan_mat(matrices);
+    printf("\n");
 
     if (!mat_a && !mat_b) {
         return;
@@ -200,6 +252,8 @@ mat
 int 
 mymat(MATRICES mats) {
     char command[20];
+    printf("Wellcome to the matrices calculator program\n");
+    printf("Ready for command:\n");
 
     while (get_word(command) != EOF) {
         if (strcmp(command, "read_mat") == 0) {
@@ -224,11 +278,17 @@ mymat(MATRICES mats) {
             trans_mat(mats);
         }
         else if (strcmp(command, "stop") == 0) {
+            printf("Stopping the program.\n");
             return 0;
         }
         else {
             report_errors(UNDEFINED_COMMAND_E);
+            read_to_end_of_line();
         }
+
+        printf("Ready for the next command:\n");
     }
+    printf("Error: EOF has entered ");
+
     return 0;
 }
