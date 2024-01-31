@@ -20,11 +20,22 @@ mat
 *scan_mat(const MATRICES matrices)
 {
     char temp_mat[10];
+    int res;
 
-    scanf("%5s%*[,] ", temp_mat);
+    res = scanf("%5s%*[^,\n] ", temp_mat);
+    // if (res = 0){
+    //     return NULL;
+    // }
+    
     printf("%s ", temp_mat);
     return sort_mat(temp_mat, matrices);
 }
+
+void
+read_to_delim(char delim){
+    while(getchar() != delim){;}
+}
+
 
 void
 read_to_end_of_line(void){
