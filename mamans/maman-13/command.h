@@ -11,18 +11,6 @@ boolean_enum {
     TRUE    = 1
 } boolean;
 
-typedef enum 
-instruction_enum {
-    ADD,
-    STOP,
-    READ,
-    PRINT,
-    TRANSPOSE,
-    SUBSTRACT,
-    MULTIPLY_MAT,
-    MULTIPLY_SCALAR
-} instruction_t; 
-
 typedef struct 
 command_args_s {
     size_t  nof_args;
