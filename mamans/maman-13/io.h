@@ -5,12 +5,6 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-#ifdef DEBUG
-#define DEBUG_LOG(x, ...) printf(1, 2)
-#else
-#define DEBUG_LOG(x, ...) 
-#endif
-
 #define get_word(buf) scanf("%s", (buf))
 
 typedef enum {
@@ -37,18 +31,4 @@ has_error(unsigned int flags, Error error);
 extern void
 report_errors(unsigned int flags);
 
-extern void
-print_line(char*);
-
-extern int
-get_line(char*, Error*);
-
-extern void
-clean_line(char*);
-
-extern void
-report_errors(Error error);
-
-
-extern void clean_line(char* line);
-#endif /* __IO__H__ */
+#endif /* IO_H_ */
