@@ -16,18 +16,12 @@ init_mats(MATRICES mats)
     reset_mat(mats.MAT_F);
 }
 
-mat
-*scan_mat(const MATRICES matrices)
+mat*
+scan_mat(const MATRICES matrices)
 {
-    char temp_mat[10];
-    int res;
+    char temp_mat[10] = {0};
 
-    res = scanf("%5s%*[^,\n] ", temp_mat);
-    // if (res = 0){
-    //     return NULL;
-    // }
-    
-    printf("%s ", temp_mat);
+    scanf("%5s%*[^,\n] ", temp_mat);
     return sort_mat(temp_mat, matrices);
 }
 
@@ -52,6 +46,7 @@ read_mat(const MATRICES matrices) {
 
     mat = scan_mat(matrices);
 
+/*     printf("%s ", ); */
     printf("\n");
 
     if (!mat) {

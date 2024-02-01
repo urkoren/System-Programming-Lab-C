@@ -1,4 +1,7 @@
-#include <stdio.h>
+#ifndef IO_H_
+#define IO_H_
+
+#include "common.h"
 
 #define get_word(buf) scanf("%s", (buf))
 
@@ -22,3 +25,5 @@ has_error(unsigned int flags, error_t error);
 /* Reports all errors in flags */
 extern void
 report_errors(unsigned int flags);
+
+#endif /* IO_H_ */
