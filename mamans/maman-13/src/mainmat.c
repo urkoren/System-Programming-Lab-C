@@ -39,6 +39,12 @@ int main(void) {
             report_errors(error);
         } else {/* error == NONE */
             do_command(command, args, &mats, scalar, arg_values);
+            print_mat(MAT_A);
+            print_mat(MAT_B);
+            print_mat(MAT_C);
+            print_mat(MAT_D);
+            print_mat(MAT_E);
+            print_mat(MAT_F);
         }
         error = NONE;
     }/* while */

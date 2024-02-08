@@ -37,7 +37,7 @@ typedef enum mat_name_t {
 } MatName;
 
 typedef struct {
-    float data[MAT_SIZE][MAT_SIZE];
+    double data[MAT_SIZE][MAT_SIZE];
 } mat;
 
 typedef struct {

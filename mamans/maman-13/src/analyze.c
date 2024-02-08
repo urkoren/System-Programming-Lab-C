@@ -74,9 +74,7 @@ analyze(
                 }
             }
             if (*command == READ) {
-                printf("%d\n", error[0]);
                 *error = get_members(line, i, members);
-                printf("%d\n", error[0]);
                 return;
             } else {/* add/sub/mul_mat/mul_scalar/trans*/
                 comma = 0;
