@@ -1,5 +1,4 @@
 #include "analyze.h"
-#include <stdio.h>
 
 void 
 analyze(

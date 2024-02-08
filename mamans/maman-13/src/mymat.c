@@ -27,8 +27,6 @@ Error read_mat(mat x, double nums[]) {
     for (j = 0; j < MAT_SIZE; j++) {
         for (k = 0; k < MAT_SIZE; k++) {
             x.data[j][k] = nums[i++];
-            printf("%lf, %lf\n", x.data[j][k] ,nums[i-1]);
-
         }
     }
     return NONE;
@@ -39,7 +37,8 @@ void print_mat(mat x) {
 
     for (i = 0; i < MAT_SIZE; i++) {
         for (j = 0; j < MAT_SIZE; j++) {
-            printf("%7.2lf", x.data[i][j]);
+            printf("%7.2f", x.data[i][j]);
+
             if (j != MAT_SIZE - 1) {
                 putchar('\t');
             }

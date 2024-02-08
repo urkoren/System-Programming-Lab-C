@@ -1,11 +1,7 @@
 # Flags
 CC = gcc
 CFLAGS = -ansi -pedantic -Wall -std=c99 -g 
-<<<<<<< HEAD
-INCLUDES = -I./src/.
-=======
-INCLUDES = -I.
->>>>>>> f9d46f9 (compiling - requires debug)
+INCLUDES = -I./src
 
 #Files and Directories
 SOURCES = $(wildcard ./src/*.c)
@@ -22,11 +18,7 @@ $(BIN): $(OBJECTS)
 	rm $(OBJECTS)
 	@echo Done.
 
-<<<<<<< HEAD
 src/%.o: src/%.c
-=======
-%.o: %.c
->>>>>>> f9d46f9 (compiling - requires debug)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $^ -o $@
 
 clean:
