@@ -152,6 +152,7 @@ analyze(
 }
 
 mat *get_mat(char* line, int* iterator, MATRICES matrices) {
+    const int MAT_LEN = strlen("MAT_A");
     char* mat_a = "MAT_A";
     char* mat_b = "MAT_B";
     char* mat_c = "MAT_C";
@@ -166,22 +167,22 @@ mat *get_mat(char* line, int* iterator, MATRICES matrices) {
             continue;
         } else if (line[i] == '\0' || line[i] == '\r') {
             return NULL;
-        } else if (strcmp(&line[i], mat_a) == 0) {
+        } else if (strncmp(&line[i], mat_a, MAT_LEN) == 0) {
             *iterator = i + strlen(mat_a);
             return matrices.MAT_A;
-        } else if (strcmp(&line[i], mat_b) == 0) {
+        } else if (strncmp(&line[i], mat_b, MAT_LEN) == 0) {
             *iterator = i + strlen(mat_b);
             return matrices.MAT_B;
-        } else if (strcmp(&line[i], mat_c) == 0) {
+        } else if (strncmp(&line[i], mat_c, MAT_LEN) == 0) {
             *iterator = i + strlen(mat_c);
             return matrices.MAT_C;
-        } else if (strcmp(&line[i], mat_d) == 0) {
+        } else if (strncmp(&line[i], mat_d, MAT_LEN) == 0) {
             *iterator = i + strlen(mat_d);
             return matrices.MAT_D;
-        } else if (strcmp(&line[i], mat_e) == 0) {
+        } else if (strncmp(&line[i], mat_e, MAT_LEN) == 0) {
             *iterator = i + strlen(mat_e);
             return matrices.MAT_E;
-        } else if (strcmp(&line[i], mat_f) == 0) {
+        } else if (strncmp(&line[i], mat_f, MAT_LEN) == 0) {
             *iterator = i + strlen(mat_f);
             return matrices.MAT_F;
         } else {

@@ -13,9 +13,9 @@
       "src/analyze.o",
       "src/analyze.c"
     ],
-    "directory": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13",
-    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/analyze.c",
-    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/analyze.o"
+    "directory": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13",
+    "file": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13/src/analyze.c",
+    "output": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13/src/analyze.o"
   },
   {
     "arguments": [
@@ -31,9 +31,9 @@
       "src/command.o",
       "src/command.c"
     ],
-    "directory": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13",
-    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/command.c",
-    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/command.o"
+    "directory": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13",
+    "file": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13/src/command.c",
+    "output": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13/src/command.o"
   },
   {
     "arguments": [
@@ -49,9 +49,9 @@
       "src/io.o",
       "src/io.c"
     ],
-    "directory": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13",
-    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/io.c",
-    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/io.o"
+    "directory": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13",
+    "file": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13/src/io.c",
+    "output": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13/src/io.o"
   },
   {
     "arguments": [
@@ -67,9 +67,9 @@
       "src/mainmat.o",
       "src/mainmat.c"
     ],
-    "directory": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13",
-    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/mainmat.c",
-    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/mainmat.o"
+    "directory": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13",
+    "file": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13/src/mainmat.c",
+    "output": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13/src/mainmat.o"
   },
   {
     "arguments": [
@@ -85,8 +85,8 @@
       "src/mymat.o",
       "src/mymat.c"
     ],
-    "directory": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13",
-    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/mymat.c",
-    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/mymat.o"
+    "directory": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13",
+    "file": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13/src/mymat.c",
+    "output": "/home/kali/project/git_repos/urkoren/System-Programming-Lab-C/mamans/maman-13/src/mymat.o"
   }
 ]
