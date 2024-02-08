@@ -1,6 +1,6 @@
 # Flags
 CC = gcc
-CFLAGS = -ansi -pedantic -Wall -std=c90
+CFLAGS = -ansi -pedantic -Wall -std=c99 -g 
 INCLUDES = -I.
 
 #Files and Directories
@@ -13,13 +13,7 @@ all: mainmat
 mainmat: $(OBJECTS)
 	$(CC) $(CFLAGS) $^ -o $@
 
-mainmat.o: mainmat.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $^ -o $@
-
-mymat.o: mymat.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $^ -o $@
-
-io.o: io.c
+%.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $^ -o $@
 
 clean:
