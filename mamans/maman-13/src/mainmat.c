@@ -1,6 +1,6 @@
+#include <stdio.h>
 #include "mymat.h"
 #include "analyze.h"
-#include <stdio.h>
 #include "io.h"
 #include "command.h"
 
@@ -15,13 +15,13 @@ int main(void) {
     mats.MAT_F = &MAT_F;
 
     int status = 0;
-    mat *x = NULL, *y = NULL, *z = NULL;
+    MAT_ARGS args = {0};
 
     init_mats(mats);
     char line[LINE_SIZE];    
     Command command;    
     double scalar = 0;/* var for mul_scalar */
-    double args[MAT_SIZE];
+    double arg_values[MAT_SIZE];
     Error error = NONE;
 
     while (status != -1) {
@@ -34,11 +34,11 @@ int main(void) {
         print_line(line);
         report_errors(error);
 
-        analyze(line, &command, x, y, z, args, &scalar, &error, mats);
+        analyze(line, &command, args ,arg_values, &scalar, &error, mats);
         if (error != NONE) {
             report_errors(error);
         } else {/* error == NONE */
-            do_command(command, x, y, z, &mats, scalar, args);
+            do_command(command, args, &mats, scalar, arg_values);
         }
         error = NONE;
     }/* while */

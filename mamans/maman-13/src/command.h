@@ -8,9 +8,7 @@
 
 extern void do_command(
     Command command, 
-    mat *x, 
-    mat *y, 
-    mat *z, 
+    MAT_ARGS args,
     MATRICES *mat_array, 
     double scalar, 
     double members[]

@@ -6,15 +6,16 @@
       "-pedantic",
       "-Wall",
       "-std=c99",
-      "-I.",
+      "-g",
+      "-I./src/.",
       "-c",
       "-o",
-      "analyze.o",
-      "analyze.c"
+      "src/analyze.o",
+      "src/analyze.c"
     ],
     "directory": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13",
-    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/analyze.c",
-    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/analyze.o"
+    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/analyze.c",
+    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/analyze.o"
   },
   {
     "arguments": [
@@ -23,15 +24,16 @@
       "-pedantic",
       "-Wall",
       "-std=c99",
-      "-I.",
+      "-g",
+      "-I./src/.",
       "-c",
       "-o",
-      "command.o",
-      "command.c"
+      "src/command.o",
+      "src/command.c"
     ],
     "directory": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13",
-    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/command.c",
-    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/command.o"
+    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/command.c",
+    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/command.o"
   },
   {
     "arguments": [
@@ -40,15 +42,16 @@
       "-pedantic",
       "-Wall",
       "-std=c99",
-      "-I.",
+      "-g",
+      "-I./src/.",
       "-c",
       "-o",
-      "io.o",
-      "io.c"
+      "src/io.o",
+      "src/io.c"
     ],
     "directory": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13",
-    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/io.c",
-    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/io.o"
+    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/io.c",
+    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/io.o"
   },
   {
     "arguments": [
@@ -57,15 +60,16 @@
       "-pedantic",
       "-Wall",
       "-std=c99",
-      "-I.",
+      "-g",
+      "-I./src/.",
       "-c",
       "-o",
-      "mainmat.o",
-      "mainmat.c"
+      "src/mainmat.o",
+      "src/mainmat.c"
     ],
     "directory": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13",
-    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/mainmat.c",
-    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/mainmat.o"
+    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/mainmat.c",
+    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/mainmat.o"
   },
   {
     "arguments": [
@@ -74,14 +78,15 @@
       "-pedantic",
       "-Wall",
       "-std=c99",
-      "-I.",
+      "-g",
+      "-I./src/.",
       "-c",
       "-o",
-      "mymat.o",
-      "mymat.c"
+      "src/mymat.o",
+      "src/mymat.c"
     ],
     "directory": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13",
-    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/mymat.c",
-    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/mymat.o"
+    "file": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/mymat.c",
+    "output": "/Users/orkoren/Documents/GitHub/System-Programming-Lab-C/mamans/maman-13/src/mymat.o"
   }
 ]
