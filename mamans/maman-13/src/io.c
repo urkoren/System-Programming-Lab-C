@@ -154,10 +154,11 @@ Error get_members(char* line, int iterator, double members[]) {
     int comma = 0;/* chacks for a comma */
     char* ptr;
     double num;
-
+    printf("before: %s\n", line);
     for (i = 0; i < MAT_SIZE*MAT_SIZE; i++) {
         members[i] = 0;/* reset */
     }
+    printf("after: %s\n", line);
 
     i = 0;
     while ((iterator < LINE_SIZE) && (line[iterator] != '\0')) {

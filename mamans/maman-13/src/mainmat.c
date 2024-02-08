@@ -21,7 +21,7 @@ int main(void) {
     char line[LINE_SIZE];    
     Command command;    
     double scalar = 0;/* var for mul_scalar */
-    double arg_values[MAT_SIZE];
+    double arg_values[MAT_SIZE*MAT_SIZE];
     Error error = NONE;
 
     while (status != -1) {
