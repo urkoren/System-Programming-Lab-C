@@ -1,0 +1,9 @@
+Compilerflags:
+  Add: [
+    -IC:/llvm/llvm-mingw-20231128-msvcrt-x86_64/lib/clang/17/include,
+    -IC:/llvm/llvm-mingw-20231128-msvcrt-x86_64/include,
+    -LC:\llvm\llvm-mingw-20231128-msvcrt-x86_64\lib,
+    -LC:\llvm\llvm-mingw-20231128-msvcrt-x86_64\lib\clang\17\lib,
+    -I., 
+  ]
+
