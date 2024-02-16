@@ -23,6 +23,10 @@ init_mats(MATRICES mats)
     reset_mat(mats.MAT_F);
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3fd740f (rebased main to sagi)
 Error read_mat(mat *x, double nums[]) {
     int i = 0, j = 0, k = 0;
     

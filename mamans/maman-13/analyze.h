@@ -1,7 +1,6 @@
 #ifndef __ANALYZE__H__
 #define __ANALYZE__H__
 
-#include "messages.h"
 #include "io.h"
 
 #define MAT_SIZE 4

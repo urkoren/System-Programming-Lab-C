@@ -31,4 +31,19 @@ has_error(unsigned int flags, Error error);
 extern void
 report_errors(unsigned int flags);
 
-#endif /* IO_H_ */
+extern void
+print_line(char*);
+
+extern int 
+get_line(char* line, Error* error);
+
+extern void 
+clean_line(char* line);
+
+extern int 
+check(char* first, char* second, int size);
+
+extern Error 
+get_members(char* line, int iterator, double members[]);
+
+#endif /* __IO__H__ */
