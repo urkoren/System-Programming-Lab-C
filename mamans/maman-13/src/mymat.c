@@ -1,144 +1,109 @@
 #include "mymat.h"
-#include "analyze.h"
-#include "messages.h"
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdlib.h>
-
 
 void 
-reset_mat(mat *mat) {
-    memset(mat->data, 0, sizeof(mat->data));
+reset_mat(mat mat) {
+    memset(mat.data, 0, sizeof(mat.data));
 }
 
 void
 init_mats(MATRICES mats)
 {
-    reset_mat(mats.MAT_A);
-    reset_mat(mats.MAT_B);
-    reset_mat(mats.MAT_C);
-    reset_mat(mats.MAT_D);
-    reset_mat(mats.MAT_E);
-    reset_mat(mats.MAT_F);
+    reset_mat(*mats.MAT_A);
+    reset_mat(*mats.MAT_B);
+    reset_mat(*mats.MAT_C);
+    reset_mat(*mats.MAT_D);
+    reset_mat(*mats.MAT_E);
+    reset_mat(*mats.MAT_F);
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fd740f (rebased main to sagi)
-Error read_mat(mat *x, double nums[]) {
+Error read_mat(mat x, double nums[]) {
     int i = 0, j = 0, k = 0;
     
-    if (!nums || !x) {
-        return MISS_ARG_E;
+    if (!nums) {
+        return MISSING_ARG_E;
     }
 
     i = 0;
     for (j = 0; j < MAT_SIZE; j++) {
         for (k = 0; k < MAT_SIZE; k++) {
-            x->data[j][k] = nums[i++];
+            x.data[j][k] = nums[i++];
         }
     }
     return NONE;
 }
 
-void print_mat(mat *x) {
-    int i = 0, j = 0;/* i, j for loop */
-
-    if (x) {
-        for (i = 0; i < MAT_SIZE; i++) {
-            for (j = 0; j < MAT_SIZE; j++) {
-                printf("%7.2f", x->data[i][j]);
-                if (j != MAT_SIZE - 1) {
-                    putchar('\t');
-                }
-            }
-            putchar('\n');
-        } 
-    }
-}
-
-void 
-add_mat(mat *x, mat *y, mat *z)
-{
-    int i, j;
-
-
-    if (!x || !y || !z) {
-        return;
-    }
+void print_mat(mat x) {
+    int i = 0, j = 0;
 
     for (i = 0; i < MAT_SIZE; i++) {
         for (j = 0; j < MAT_SIZE; j++) {
-            z->data[i][j] = x->data[i][j] + y->data[i][j];
+            printf("%7.2f", x.data[i][j]);
+            if (j != MAT_SIZE - 1) {
+                putchar('\t');
+            }
+        }
+        putchar('\n');
+    } 
+}
+
+void 
+add_mat(mat x, mat y, mat z)
+{
+    int i, j;
+
+    for (i = 0; i < MAT_SIZE; i++) {
+        for (j = 0; j < MAT_SIZE; j++) {
+            z.data[i][j] = x.data[i][j] + y.data[i][j];
         }
     }
 }
 
 void 
-sub_mat(mat *x, mat *y, mat *z)
+sub_mat(mat x, mat y, mat z)
 {
     int i, j;
 
-
-    if (!x || !y || !z) {
-        return;
-    }
-
     for (i = 0; i < MAT_SIZE; i++) {
         for (j = 0; j < MAT_SIZE; j++) {
-            z->data[i][j] = x->data[i][j] - y->data[i][j];
+            z.data[i][j] = x.data[i][j] - y.data[i][j];
         }
     }
 }
 
 void
-mul_mat(mat *x, mat *y, mat *z)
+mul_mat(mat x, mat y, mat z)
 {
     int i, j, k;
-
-    if (!x || !y || !z) {
-        return;
-    }
 
     for (i = 0; i < MAT_SIZE; i++) {
         for (j = 0; j < MAT_SIZE; j++) {
             for(k = 0; k < MAT_SIZE; k++) {
-                z->data[i][j] = x->data[i][k] * y->data[k][j];
+                z.data[i][j] = x.data[i][k] = y.data[k][j];
             }
         }
     }
 }
 
 void
-mul_scalar(mat *x, double scalar, mat *z)
+mul_scalar(mat x, double scalar, mat z)
 {
     int i, j;
 
-    if (!x || !z) {
-        return;
-    }
-
     for (i = 0; i < MAT_SIZE; i++) {
         for (j = 0; j < MAT_SIZE; j++) {
-            z->data[i][j] = x->data[i][j] * scalar;
+            z.data[i][j] = x.data[i][j] = scalar;
         }
     }
 }
 
 void
-trans_mat(mat *x, mat *z)
+trans_mat(mat x, mat z)
 {
     int i, j;
 
-    if (!x || !z) {
-        return;
-    }
-
     for (i = 0; i < MAT_SIZE; i++) {
         for (j = 0; j < MAT_SIZE; j++) {
-            z->data[i][j] = x->data[i][j];
+            z.data[i][j] = x.data[i][j];
         }
     }
 }

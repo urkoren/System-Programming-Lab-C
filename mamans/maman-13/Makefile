@@ -1,21 +1,26 @@
 # Flags
 CC = gcc
 CFLAGS = -ansi -pedantic -Wall -std=c99 -g 
-INCLUDES = -I.
+INCLUDES = -I./src/.
 
 #Files and Directories
-SOURCES = $(wildcard *.c)
+SOURCES = $(wildcard ./src/*.c)
 OBJECTS = $(SOURCES:.c=.o)
+BIN = mainmat
 
 # Rules
-all: mainmat
+all: $(BIN)
 
-mainmat: $(OBJECTS)
+$(BIN): $(OBJECTS)
+	@echo Building
 	$(CC) $(CFLAGS) $^ -o $@
+	@echo Cleaning up
+	rm $(OBJECTS)
+	@echo Done.
 
-%.o: %.c
+src/%.o: src/%.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $^ -o $@
 
 clean:
-	rm ./*.o
-	rm mymat
+	rm ./src/*.o
+	rm $(BIN)

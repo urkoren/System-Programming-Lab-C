@@ -12,7 +12,7 @@ typedef enum {
     UNDEFINED_COMMAND_E         = 0x02,
     ARGUMENT_NOT_NUMBER_E       = 0x04,
     EXTRA_TEXT_E                = 0x08,
-    MISS_ARG_E                  = 0x10,
+    MISSING_ARG_E                  = 0x10,
     ILLEGAL_COMMA_E             = 0x20,
     MISSING_COMMMA_E                = 0x40,
     MULT_COMMA_E                = 0x80,

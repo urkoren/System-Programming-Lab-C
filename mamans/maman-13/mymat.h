@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 #ifndef __SET__H__
 #define __SET__H__
 
+=======
+#ifndef MYMAT_H_
+#define MYMAT_H_
+
+#include "common.h"
+#include "io.h"
+>>>>>>> 38add6d (refactoring, should not be merged - compiling but not working)
 #include "analyze.h"
 
 extern Error 
@@ -34,4 +42,8 @@ extern void
 stop(void);
 
 
+<<<<<<< HEAD
 #endif  /*!__SET__H__*/
+=======
+#endif  /*MYMAT_H_*/
+>>>>>>> 38add6d (refactoring, should not be merged - compiling but not working)

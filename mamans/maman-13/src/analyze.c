@@ -1,24 +1,17 @@
 #include "analyze.h"
-#include "messages.h"
-#include "mymat.h"
-#include "io.h"
-#include <string.h>
-#include <ctype.h>
-#include <stdlib.h>
 
 void 
 analyze(
     char* line, 
     Command* command, 
-    mat *x, 
-    mat *y, 
-    mat *z,
+    MAT_ARGS args,
     double* members, 
     double* scalar, 
     Error* error, 
     MATRICES matrices
 ) 
 {
+    mat *x = &args.x, *y = &args.y, *z = &args.z;
     int i = 0, comma = 0;
     char* ptr;
     *error = NONE;/* resets it for later use. */
@@ -35,7 +28,7 @@ analyze(
             *error = ILLEGAL_COMMA_E;
         } else if (line[i] == '\0' || line[i] == '\r') {
             if (*command != STOP) {
-                *error = MISS_ARG_E;
+                *error = MISSING_ARG_E;
             }
         } else {
             *error = ILLEGAL_CHAR_E;
@@ -44,16 +37,9 @@ analyze(
     }
     /* command is OK and has a white char after it */
     if (*command != STOP) {
-        /* printf("line: %s, i: %d, matrices: \n", line, i); */
-        /* print_mat(matrices.MAT_A); */
-        /* print_mat(matrices.MAT_B); */
-        /* print_mat(matrices.MAT_C); */
-        /* print_mat(matrices.MAT_D); */
-        /* print_mat(matrices.MAT_E); */
-        /* print_mat(matrices.MAT_F); */
         x = get_mat(line, &i, matrices);
         if (!(x)) {
-            *error = MISS_ARG_E;
+            *error = MISSING_ARG_E;
             return;
         }
         if (*command != PRINT) {/* needs a comma now */
@@ -103,13 +89,13 @@ analyze(
                             return;
                         }
                     } else if (line[i] == '\0' || line[i] == '\r') {/* cutting line short */
-                        *error = MISS_ARG_E;
+                        *error = MISSING_ARG_E;
                         return;
                     } else {
                         if (comma) {
                             y = get_mat(line, &i, matrices);
-                            if (y == NULL) {
-                                *error = MISS_ARG_E;
+                            if (!y) {
+                                *error = MISSING_ARG_E;
                                 return;
                             }
                         } else {/* illegal char */
@@ -132,13 +118,13 @@ analyze(
                                 return;
                             }
                         } else if (line[i] == '\0' || line[i] == '\r') {/* cutting line short */
-                            *error = MISS_ARG_E;
+                            *error = MISSING_ARG_E;
                             return;
                         } else {
                             if (comma) {
                             z = get_mat(line, &i, matrices);
                             if (z == NULL) {
-                                *error = MISS_ARG_E;
+                                *error = MISSING_ARG_E;
                                 return;
                             }
                         } else {/* illegal char */

@@ -26,7 +26,7 @@ report_errors(unsigned int flags)
     else if (has_error(flags, EXTRA_TEXT_E)) {
         printf("Error : Extaneous text after end of command\n");
     }
-    else if (has_error(flags, MISS_ARG_E)) {
+    else if (has_error(flags, MISSING_ARG_E)) {
         printf("Error : Missing argument\n");
     }
     else if (has_error(flags, ILLEGAL_COMMA_E)) {
@@ -189,7 +189,7 @@ Error get_members(char* line, int iterator, double members[]) {
     if (comma) {
         return ILLEGAL_COMMA_E;
     } else if (!i) {
-        return MISS_ARG_E;
+        return MISSING_ARG_E;
     }
     return NONE;
 }

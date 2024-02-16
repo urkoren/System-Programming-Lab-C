@@ -2,6 +2,11 @@
 #define __ANALYZE__H__
 
 #include "io.h"
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 
 #define MAT_SIZE 4
 #define LINE_SIZE 80
@@ -35,7 +40,7 @@ typedef struct {
     float data[MAT_SIZE][MAT_SIZE];
 } mat;
 
-typedef struct MATRICES {
+typedef struct {
     mat *MAT_A;
     mat *MAT_B;
     mat *MAT_C;
@@ -43,6 +48,14 @@ typedef struct MATRICES {
     mat *MAT_E;
     mat *MAT_F;
 } MATRICES;
+
+typedef struct {
+    mat x;
+    mat y;
+    mat z;
+} MAT_ARGS;
+
+
 
 
 
@@ -91,7 +104,7 @@ typedef struct MATRICES {
  * @param scalar - pointer to store the scalar for mul_scalar.
  * @param error - pointer to store in it the error in the line, if there is one.
  */
-void analyze(char* line, Command* command, mat *x, mat *y, mat *z,
+void analyze(char* line, Command* command, MAT_ARGS args,
                 double* members, double* scalar, Error* error, MATRICES matrices); 
 
 /**
