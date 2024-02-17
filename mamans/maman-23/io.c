@@ -1,23 +1,41 @@
-int getword(char *word, int lim)
-{
-	int c, getch(void);
-	void ungetch(int);
-	char *w = word;
+#include "io.h"
 
-	while (isspace(c = getch()))
-		;
-	if (c != EOF)
-		*w++ = c;
-	if (!isalpha(c)) {
-		*w = '\0';
-		return c;
-	}
-	for ( ; --lim > 0; w++)
-		if (!isalnum(*w = getch())) {
-			ungetch(*w);
-			break;
-		}
-	*w = '\0';
-	return word[0];
+char
+*get_word(char *line, char *delimiters)
+{
+    return strtok(line, delimiters);
 }
+
+char 
+*get_line(char *line, FILE *file)
+{
+    return fgets(line, MAXWORD, file);
+}
+
+void 
+treeprint(struct tnode *p) {
+    if (p != NULL) {
+        treeprint(p->left);
+        printf("%s: ", p->word);
+        struct line_node *current;
+        current = p->lines;
+        while (current != NULL) {
+            printf("%d ", current->line_number);
+            current = current->next;
+        }
+        printf("\n");
+        treeprint(p->right);
+    }
+}
+
+char 
+*mystrdup(char *s)
+{
+	char *p;
+
+	p = (char *) malloc(strlen(s)+1);
+	if (p != NULL)
+		strcpy(p, s);
+
+	return p;
 }
