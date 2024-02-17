@@ -1,9 +1,11 @@
-#ifndef _IO_H_
-#define _IO_H_
+#ifndef IO_H_
+#define IO_H_
+
 #include <string.h>
-#include <stdio.h>
-#include <ctype.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 
 #define get_word(buf) scanf("%s", (buf))
 

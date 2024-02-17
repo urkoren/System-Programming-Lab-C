@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 
 #define MAT_SIZE 4
