@@ -17,6 +17,10 @@ extern void
 treeprint(struct tnode *p);
 /* Prints the index tree. */
 
+void
+lineprint(struct line_node *p);
+/* Prints the lines list */
+
 extern char 
 *mystrdup(char *s);
 /* Duplicates a string. */

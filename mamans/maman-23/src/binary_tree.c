@@ -8,19 +8,17 @@ void
 fparse_to_findex(FILE *file, struct index *findex) {
     int line_count = 1;
     char line[MAXWORD];
-    char *key;
+    char *key = NULL;
     
     while (get_line(line, file) != NULL) {
-        char *token = NULL;
-        while ((token = get_word((token == NULL ? line: NULL), " \t\n")) != NULL) {
-            key = token;
+        while ((key = get_word((key == NULL ? line: NULL), " ,;.\t\n")) != NULL) {
             if (findex->root != NULL) {
                 findex->root = addtree(findex->root, key, line_count); 
             } else {
                 findex->root = addtree(NULL, key, line_count);
             }
         }
-        token = NULL;
+        key = NULL;
         line_count++;
     }
 }
@@ -60,9 +58,9 @@ struct line_node
 *create_new_line_node(int line_count)
 {
         struct line_node *new_node;
-        new_node = (struct line_node *)malloc(sizeof(struct line_node));
+        new_node = lalloc();
         if (new_node == NULL) {
-            fprintf(stderr, "Memory allocation failed\n");
+            printf("Memory allocation failed\n");
             exit(EXIT_FAILURE);
         }
         new_node->line_number = line_count;
@@ -86,9 +84,9 @@ check_line(struct tnode *p, int line_count) {
 void 
 append_line_count(struct tnode *p, int line_count) {
     struct line_node *new_node;
-    new_node = (struct line_node *)malloc(sizeof(struct line_node));
+    new_node = lalloc();
     if (new_node == NULL) {
-        fprintf(stderr, "Memory allocation failed\n");
+        printf("Memory allocation failed\n");
         exit(EXIT_FAILURE);
     }
     new_node->line_number = line_count;
@@ -100,6 +98,12 @@ append_line_count(struct tnode *p, int line_count) {
 /*
 * memory allocation
 */
+
+struct line_node
+*lalloc(void)
+{
+	return (struct line_node *)malloc(sizeof(struct line_node));
+}
 
 struct tnode 
 *talloc(void)

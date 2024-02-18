@@ -13,6 +13,7 @@ main(int argc, char *argv[])
     FILE *file;
     int file_count = 1;
     struct index findex;
+    findex.root = NULL;
     
     while(file_count < argc) {
         file_path = argv[file_count];

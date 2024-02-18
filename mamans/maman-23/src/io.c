@@ -16,15 +16,22 @@ void
 treeprint(struct tnode *p) {
     if (p != NULL) {
         treeprint(p->left);
-        printf("%s: ", p->word);
-        struct line_node *current;
-        current = p->lines;
-        while (current != NULL) {
-            printf("%d ", current->line_number);
-            current = current->next;
-        }
+        printf("%-10s appears in line ", p->word);
+	lineprint(p->lines);
         printf("\n");
         treeprint(p->right);
+    }
+}
+
+void
+lineprint(struct line_node *p)
+{
+    if (p != NULL) {
+        lineprint(p->next);
+	if ((p->next) != NULL)
+	    printf(",");
+        printf("%d", p->line_number);
+
     }
 }
 

@@ -34,6 +34,10 @@ extern void
 append_line_count(struct tnode *p, int line_count);
 /* Appends a line number to the node. */
 
+extern struct line_node
+*lalloc(void);
+/* Allocates memory for a line node. */
+
 extern struct tnode 
 *talloc(void);
 /* Allocates memory for a tree node. */
