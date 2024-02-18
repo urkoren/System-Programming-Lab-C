@@ -1,6 +1,13 @@
-#ifndef __BINARY_TREE_H__
-#define __BINARY_TREE_H__
+#ifndef BINARY_TREE_H_
+#define BINARY_TREE_H_ 
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <assert.h>
+
+#include "io.h"
 #include "index.h"
 
 extern void 
@@ -43,4 +50,4 @@ extern void
 free_line_list(struct line_node *lines);
 /* Frees memory allocated for the line list. */
 
-#endif __BINARY_TREE_H__
+#endif /* BINARY_TREE_H_ */

@@ -2,7 +2,9 @@
  * Builds an index of words and their line numbers from text files.
  */
 
+#include "io.h"
 #include "index.h"
+#include "binary_tree.h"
 
 int 
 main(int argc, char *argv[])

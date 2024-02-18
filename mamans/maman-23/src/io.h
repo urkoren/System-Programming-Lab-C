@@ -1,5 +1,5 @@
-#ifndef __IO_H__
-#define __IO_H__
+#ifndef IO_H_
+#define IO_H_
 
 #include "index.h"
 
@@ -21,4 +21,4 @@ extern char
 *mystrdup(char *s);
 /* Duplicates a string. */
 
-#endif __IO_H__
+#endif /* IO_H_ */

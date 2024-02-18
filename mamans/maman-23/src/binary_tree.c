@@ -1,3 +1,5 @@
+#include "binary_tree.h"
+
 /* 
 * parsing
 */
@@ -9,8 +11,8 @@ fparse_to_findex(FILE *file, struct index *findex) {
     char *key;
     
     while (get_line(line, file) != NULL) {
-        char *token;
-        while ((token = get_word(line, " \t\n")) != NULL) {
+        char *token = NULL;
+        while ((token = get_word((token == NULL ? line: NULL), " \t\n")) != NULL) {
             key = token;
             if (findex->root != NULL) {
                 findex->root = addtree(findex->root, key, line_count); 
@@ -18,6 +20,7 @@ fparse_to_findex(FILE *file, struct index *findex) {
                 findex->root = addtree(NULL, key, line_count);
             }
         }
+        token = NULL;
         line_count++;
     }
 }
@@ -136,3 +139,4 @@ free_line_list(struct line_node *lines) {
         free(temp);
     }
 }
+

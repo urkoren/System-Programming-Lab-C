@@ -1,0 +1,56 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-ansi",
+      "-pedantic",
+      "-Wall",
+      "-std=c99",
+      "-g",
+      "-c",
+      "-I./src",
+      "-o",
+      "src/binary_tree.o",
+      "src/binary_tree.c"
+    ],
+    "directory": "/home/yomompancake/Project/git-repos/urkoren/System-Programming-Lab-C/mamans/maman-23",
+    "file": "/home/yomompancake/Project/git-repos/urkoren/System-Programming-Lab-C/mamans/maman-23/src/binary_tree.c",
+    "output": "/home/yomompancake/Project/git-repos/urkoren/System-Programming-Lab-C/mamans/maman-23/src/binary_tree.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-ansi",
+      "-pedantic",
+      "-Wall",
+      "-std=c99",
+      "-g",
+      "-c",
+      "-I./src",
+      "-o",
+      "src/index.o",
+      "src/index.c"
+    ],
+    "directory": "/home/yomompancake/Project/git-repos/urkoren/System-Programming-Lab-C/mamans/maman-23",
+    "file": "/home/yomompancake/Project/git-repos/urkoren/System-Programming-Lab-C/mamans/maman-23/src/index.c",
+    "output": "/home/yomompancake/Project/git-repos/urkoren/System-Programming-Lab-C/mamans/maman-23/src/index.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-ansi",
+      "-pedantic",
+      "-Wall",
+      "-std=c99",
+      "-g",
+      "-c",
+      "-I./src",
+      "-o",
+      "src/io.o",
+      "src/io.c"
+    ],
+    "directory": "/home/yomompancake/Project/git-repos/urkoren/System-Programming-Lab-C/mamans/maman-23",
+    "file": "/home/yomompancake/Project/git-repos/urkoren/System-Programming-Lab-C/mamans/maman-23/src/io.c",
+    "output": "/home/yomompancake/Project/git-repos/urkoren/System-Programming-Lab-C/mamans/maman-23/src/io.o"
+  }
+]
