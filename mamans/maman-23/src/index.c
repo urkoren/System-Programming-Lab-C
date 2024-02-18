@@ -14,17 +14,17 @@ int main(int argc, char *argv[]) {
   findex.root = NULL;
 
   while (file_count < argc) {
-    file_path = argv[file_count];
-    file = fopen(argv[file_count], "r");
+    file_path = argv[file_count++];
+    file = fopen(file_path, "r");
     if (file == NULL) {
-      printf("Error opening file: %s\n", file_path);
-      return -1;
+      fprintf(stderr, "Error opening file %s: ", file_path);
+      perror("");  
+      continue;
     }
 
     fparse_to_findex(file, &findex);
     treeprint(findex.root);
     fclose(file);
-    file_count++;
     reset_findex(&findex);
   }
 
